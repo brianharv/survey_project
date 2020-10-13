@@ -15,7 +15,7 @@ class SurveysController < ApplicationController
     flash[:notice] = "Survey reated Successfully!"
     redirect_to surveys_path
    else
-    flash[:alert = "An error occurred while creating the survey."]
+    flash[:alert] = "An error occurred while creating the survey."
     render :new
    end  
   end
@@ -27,7 +27,7 @@ class SurveysController < ApplicationController
 
   def show
    @survey = Survey.find(params[:id])
-   rended :show
+   render :show
   end
 
   def update
@@ -35,8 +35,6 @@ class SurveysController < ApplicationController
     if @survey.update(survey_params)
       flash[:notice] = "Survey Updated Successfully!"
       redirect_to surveys_path
-      render: edit
-    else
       flash[:alert] = "There was an error processing your request."
     end    
   end
@@ -51,6 +49,6 @@ class SurveysController < ApplicationController
 
   private
     def survey_params
-      param.require(:survey).permit(:topic)
+      params.require(:survey).permit(:topic)
     end  
 end

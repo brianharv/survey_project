@@ -14,6 +14,6 @@ class Survey < ApplicationRecord
   end    
 
   def titleize_survey
-    self.topice = self.name.titleize
+    self.topic = self.topic.titleize
   end  
 end  
