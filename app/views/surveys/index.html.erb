@@ -1,0 +1,14 @@
+<h1>Surveys</h1>
+
+<% if @surveys.any? %>
+  <ul>
+    <% @surveys.each do |survey| %>
+      <li><%= link_to survey.name, survey_path(survey) %></li> <!--survey_path(survey). survey_path must take an argument because otherwise our application won't be able to route to a specific survey. -->
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no Surveys yet.</p>
+<% end %>
+
+
+<p><%= link_to "Create new Survey", new_survey_path %></p>

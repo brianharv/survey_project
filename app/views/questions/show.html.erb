@@ -1,0 +1,9 @@
+<h1>Question: <%= @question.body %></h1>
+<h2>Survey: <%= @survey.topic %></h2>
+
+<p><%= link_to "Edit question", edit_survey_question_path(@survey, @question) %></p> <!--Note that we're passing two instance variables into our link_to helper methods. This is expected. We only need one for the survey_path, though. The prefix makes it clear which objects need to be passed into the path. -->
+<p><%= link_to "Delete question", survey_question_path(@survey, @question),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to survey", survey_path(@survey) %></p>
